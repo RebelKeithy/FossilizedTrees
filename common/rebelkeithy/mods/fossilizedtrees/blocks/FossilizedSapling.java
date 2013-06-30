@@ -25,6 +25,7 @@ import net.minecraftforge.event.terraingen.TerrainGen;
 
 public class FossilizedSapling extends Block
 {
+	String[] types = {"Iron", "Gold", "Lapis", "Diamond", "Emerald", "Redstone", "Copper", "Tin", "Silver", "Lead", "Ferrous"};
 
     @SideOnly(Side.CLIENT)
     private Icon[] saplingIcon;
@@ -44,12 +45,7 @@ public class FossilizedSapling extends Block
     {
         if (!par1World.isRemote)
         {
-            super.updateTick(par1World, par2, par3, par4, par5Random);
-
-            if (par1World.getBlockLightValue(par2, par3 + 1, par4) >= 9 && par5Random.nextInt(7) == 0)
-            {
-                this.markOrGrowMarked(par1World, par2, par3, par4, par5Random);
-            }
+            this.markOrGrowMarked(par1World, par2, par3, par4, par5Random);
         }
     }
 
@@ -158,7 +154,7 @@ public class FossilizedSapling extends Block
      */
     public boolean isSameSapling(World par1World, int par2, int par3, int par4, int par5)
     {
-        return par1World.getBlockId(par2, par3, par4) == this.blockID && (par1World.getBlockMetadata(par2, par3, par4) & 3) == par5;
+        return par1World.getBlockId(par2, par3, par4) == this.blockID && par1World.getBlockMetadata(par2, par3, par4) == par5;
     }
 
     /**

@@ -21,6 +21,9 @@ import cpw.mods.fml.common.IWorldGenerator;
 
 public class WorldModGenSpiritTree extends WorldGenerator implements IWorldGenerator
 {
+	int treeMinHeight = 7;
+	int treeMaxHeight = 20;
+	
     public WorldModGenSpiritTree()
     {
     }
@@ -45,7 +48,7 @@ public class WorldModGenSpiritTree extends WorldGenerator implements IWorldGener
     public boolean generate(World par1World, Random par2Random, int par3, int par4, int par5)
     {
     	System.out.println("gen " + par3 + " " + par4 + " " + par5);
-        int l = par2Random.nextInt(3) + 4;
+        int l = par2Random.nextInt(treeMaxHeight - treeMinHeight) + treeMinHeight;
         boolean flag = true;
 
         if (par4 >= 1 && par4 + l + 1 <= 256)

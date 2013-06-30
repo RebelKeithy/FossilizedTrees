@@ -1,5 +1,7 @@
 package rebelkeithy.mods.fossilizedtrees;
 
+import java.io.File;
+
 import net.minecraftforge.common.Configuration;
 import rebelkeithy.mods.keithyutils.Config;
 
